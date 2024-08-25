@@ -68,10 +68,11 @@ ul {
 	>li {
 		transition: scale 100ms;
 		padding-block: 3rem;
+		position: relative;
 		
 		&.next {
 			--progress-percent: calc(100% * var(--progress));
-			scale: 2;
+			scale: 2.5;
 			background: linear-gradient(var(--color-black) var(--progress-percent), transparent var(--progress-percent));
 			-webkit-background-clip: text;
 			color: transparent;
@@ -86,7 +87,25 @@ ul {
 			translate: 0 -.5rem;
 		}
 		&:has(~ .next) {
-			opacity: .7;
+			/* background-image: linear-gradient(135deg, #ddd 25%, transparent 0, transparent 50%, #ddd 0, #ddd 75%, transparent 0, transparent);
+			background-size: 20px 20px;
+			-webkit-background-clip: text;
+			color: rgba(0 0 0 / .5); */
+			color: rgb(from var(--color-black) r g b / .7);
+			
+			&::before {
+				content: "";
+				translate: -50% -50%;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 110%;
+				height: 10px;
+				background-color: var(--color-red);
+				box-shadow: 0 0 0 5px var(--color-yellow);
+				rotate: -4deg;
+				border-radius: 3px;
+			}
 		}
 		.next ~ & {
 			color: transparent;
