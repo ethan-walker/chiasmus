@@ -21,6 +21,8 @@ main {
 	height: 100dvh;
 	overflow: clip;
 	background-color: var(--color-yellow);
+	background: linear-gradient(var(--color-yellow) calc(100% * var(--progress)), transparent calc(100% * var(--progress)));
+	transition: background 1s linear;
 	
 	/* &::before {
 		content: "";
@@ -46,14 +48,14 @@ main {
 }
 
 ul {
-	--item-height: calc(100% / 13);
+	--item-height: calc(100% / 26);
 
 	--center-offset: calc(50vh - (var(--item-height) / 2));
 	--next-offset: calc(var(--item-height) * (var(--next-index) - 1));
 	--progress-offset: calc(var(--progress) * var(--item-height));
 	
 	list-style: none;
-	font-size: 5em;
+	font-size: min(5em, 15vw);
 	width: fit-content;
 	margin-inline: auto;
 	color: var(--color-black);
@@ -73,18 +75,19 @@ ul {
 		&.next {
 			--progress-percent: calc(100% * var(--progress));
 			scale: 2.5;
+			
 			background: linear-gradient(var(--color-black) var(--progress-percent), transparent var(--progress-percent));
-			-webkit-background-clip: text;
+			background-clip: text;
 			color: transparent;
 			-webkit-text-stroke: 1px var(--color-black);
 		}
 		.next + & {
 			scale: 1.4;
-			translate: 0 .5rem;
+			translate: 0 .3em;
 		}
 		&:has(+ .next) {
 			scale: 1.4;
-			translate: 0 -.5rem;
+			translate: 0 -.3em;
 		}
 		&:has(~ .next) {
 			/* background-image: linear-gradient(135deg, #ddd 25%, transparent 0, transparent 50%, #ddd 0, #ddd 75%, transparent 0, transparent);
@@ -100,7 +103,7 @@ ul {
 				top: 50%;
 				left: 50%;
 				width: 110%;
-				height: 10px;
+				height: .17em;
 				background-color: var(--color-red);
 				box-shadow: 0 0 0 5px var(--color-yellow);
 				rotate: -4deg;

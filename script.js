@@ -14,9 +14,10 @@ const chiasList = [
 	"23:32"
 ]
 const timeUl = document.querySelector("ul");
+const main = document.querySelector("main");
 
-var totalMinutes = time => (time.getHours() * 60) + time.getMinutes();
-var stringTotalMinutes = str => parseInt(str.split(":")[0]) * 60 + parseInt(str.split(":")[1])
+var totalMinutes = time => (time.getHours() * 3600) + (time.getMinutes() * 60) + time.getSeconds();
+var stringTotalMinutes = str => parseInt(str.split(":")[0]) * 3600 + parseInt(str.split(":")[1]) * 60
 
 function checkTime() {
 	var now = new Date();
@@ -39,7 +40,7 @@ function checkTime() {
 	var progress = minutesSinceLast / minuteGap;
 	
 	timeUl.style.setProperty("--next-index", nextIndex);
-	timeUl.style.setProperty("--progress", progress);
+	main.style.setProperty("--progress", progress);
 	timeUl.children[nextIndex].classList.add("next");
 	
 	setTimeout(checkTime, 1000);
