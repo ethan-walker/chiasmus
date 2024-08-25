@@ -1,0 +1,94 @@
+:root {
+	--color-yellow: #ffd500;
+	--color-black: #1a2529;
+	--color-royal-blue: #150874;
+	--color-red: #dd3333;
+	--color-blue: #1e73be;
+	--color-mustard: #dd9933;
+	--color-teal: #2dbdb6;
+}
+body {
+	font-family: "Roboto Flex";
+	font-weight: 900;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+main {
+	width: 100dvw;
+	height: 100dvh;
+	overflow: clip;
+	background-color: var(--color-yellow);
+	
+	/* &::before {
+		content: "";
+		position: absolute;
+		height: 3vh;
+		width: 100%;
+		top: 0;
+		left: 0;
+		background-color: var(--color-yellow);
+		z-index: 999;
+	}
+	&::after {
+		content: "";
+		position: absolute;
+		height: 3vh;
+		width: 100%;
+		bottom: 0;
+		left: 0;
+		background-color: var(--color-yellow);
+		z-index: 999;
+	} */
+	
+}
+
+ul {
+	--item-height: calc(100% / 13);
+
+	--center-offset: calc(50vh - (var(--item-height) / 2));
+	--next-offset: calc(var(--item-height) * (var(--next-index) - 1));
+	--progress-offset: calc(var(--progress) * var(--item-height));
+	
+	list-style: none;
+	font-size: 5em;
+	width: fit-content;
+	margin-inline: auto;
+	color: var(--color-black);
+	display: grid;
+	justify-items: center;
+	user-select: none;
+
+	translate: 0 calc(var(--center-offset) - var(--next-offset) - var(--progress-offset));
+	transition: translate 1s;
+	transform-style: preserve-3d;
+	
+	>li {
+		transition: scale 100ms;
+		padding-block: 3rem;
+		opacity: .7;
+		
+		&.next {
+			--progress-percent: calc(100% * var(--progress));
+			scale: 2;
+			background: linear-gradient(var(--color-black) var(--progress-percent), transparent var(--progress-percent));
+			-webkit-background-clip: text;
+			color: transparent;
+			-webkit-text-stroke: 1px var(--color-black);
+			opacity: 1;
+		}
+		.next + & {
+			scale: 1.4;
+			translate: 0 .5rem;
+		}
+		&:has(+ .next) {
+			scale: 1.4;
+			translate: 0 -.5rem;
+		}
+		/* &:has(+ * + .next) {
+			transform: rotateX(45deg);
+		} */
+	}
+}
