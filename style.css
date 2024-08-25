@@ -68,7 +68,6 @@ ul {
 	>li {
 		transition: scale 100ms;
 		padding-block: 3rem;
-		opacity: .7;
 		
 		&.next {
 			--progress-percent: calc(100% * var(--progress));
@@ -77,7 +76,6 @@ ul {
 			-webkit-background-clip: text;
 			color: transparent;
 			-webkit-text-stroke: 1px var(--color-black);
-			opacity: 1;
 		}
 		.next + & {
 			scale: 1.4;
@@ -87,8 +85,12 @@ ul {
 			scale: 1.4;
 			translate: 0 -.5rem;
 		}
-		/* &:has(+ * + .next) {
-			transform: rotateX(45deg);
-		} */
+		&:has(~ .next) {
+			opacity: .7;
+		}
+		.next ~ & {
+			color: transparent;
+			-webkit-text-stroke: 1px var(--color-black);
+		}
 	}
 }
