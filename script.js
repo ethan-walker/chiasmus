@@ -41,8 +41,7 @@ function checkTime() {
 	timeUl.style.setProperty("--next-index", nextIndex);
 	timeUl.style.setProperty("--progress", progress);
 	timeUl.children[nextIndex].classList.add("next");
-
-	console.log("done!");
+	
 	setTimeout(checkTime, 1000);
 }
 checkTime();
