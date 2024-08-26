@@ -105,9 +105,9 @@ ul {
 				width: 110%;
 				height: .17em;
 				background-color: var(--color-red);
-				box-shadow: 0 0 0 5px var(--color-yellow);
+				box-shadow: 0 0 0 .05em var(--color-yellow);
 				rotate: -4deg;
-				border-radius: 3px;
+				border-radius: .03em;
 			}
 		}
 		.next ~ & {
