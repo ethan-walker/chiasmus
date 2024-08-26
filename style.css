@@ -48,7 +48,7 @@ main {
 }
 
 ul {
-	--item-height: calc(100% / 26);
+	--item-height: calc(100% / 13);
 
 	--center-offset: calc(50vh - (var(--item-height) / 2));
 	--next-offset: calc(var(--item-height) * var(--next-index));
