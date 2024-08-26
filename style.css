@@ -115,7 +115,7 @@ ul {
 		}
 		.next ~ & {
 			color: transparent;
-			-webkit-text-stroke: 1px var(--color-black);
+			-webkit-text-stroke: .01em var(--color-black);
 		}
 	}
 }

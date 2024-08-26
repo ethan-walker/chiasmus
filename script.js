@@ -42,7 +42,12 @@ function checkTime() {
 	timeUl.style.setProperty("--next-index", nextIndex);
 	main.style.setProperty("--progress", progress);
 	timeUl.children[nextIndex].classList.add("next");
-	
+	try {
+		document.querySelector(".next:has(~ .next)").classList.remove("next");
+	}
+	catch {
+		// nothing!
+	}
 	setTimeout(checkTime, 1000);
 }
 checkTime();
